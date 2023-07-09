@@ -15,7 +15,7 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">           
 	
 	<!-- Here DispatcherServlet will search the controller class  -->
-	<context:component-scan base-package="com.dz.app.controller"></context:component-scan>
+	<context:component-scan base-package="com.dz.app.*"></context:component-scan>
 	
 	
 	<!-- Here, the InternalResourceViewResolver class is used for the ViewResolver.
@@ -50,9 +50,10 @@
        
    <bean name="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate" p:sessionFactory-ref="sf" />
 
-       
-   <bean name="employeeDao" class="com.dz.app.dao.impl.EmployeeDaoImpl" p:template-ref="hibernateTemplate"/>
-   <bean name="employeeService" class="com.dz.app.service.impl.EmployeeServiceImpl" p:employeeDao-ref="employeeDao"/>
+
+ <!-- no need if we used auto-wired -->       
+ <!--   <bean name="employeeDao" class="com.dz.app.dao.impl.EmployeeDaoImpl" p:template-ref="hibernateTemplate"/>
+   <bean name="employeeService" class="com.dz.app.service.impl.EmployeeServiceImpl" p:employeeDao-ref="employeeDao"/> -->
    
    
    <!-- to enable transaction management -->

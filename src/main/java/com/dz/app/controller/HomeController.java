@@ -18,7 +18,7 @@ public class HomeController {
 	public String testLive() {
 
 		System.out.println("I am alive...");
-		return "index";
+		return "home";
 	}
 
 	@RequestMapping(path = "/test", method = RequestMethod.GET)

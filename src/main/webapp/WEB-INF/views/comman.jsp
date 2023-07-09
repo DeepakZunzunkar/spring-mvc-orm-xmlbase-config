@@ -28,6 +28,10 @@
 <link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css' rel='stylesheet' type='text/css'>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js' type='text/javascript'></script>
 
+<!-- font awssome  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 <style type="text/css">
 div {
 	margin: 15px;
@@ -35,6 +39,10 @@ div {
 
 body {
 	font-family: "Sofia", sans-serif;
+}
+
+.appFontStyle{
+    font-family: cursive;
 }
 
 .inpSty{
@@ -49,7 +57,9 @@ body {
 
 <script type="text/javascript">
 $(document).ready(function(){
-    $('#datepicker').datepicker(); 
+    $('#datepicker').datepicker({
+    	orientation: "bottom"
+    }); 
 });
 
 function checkform(){
@@ -70,7 +80,7 @@ function chk(){
 
 </script>
 </head>
-<body class="container-fluid">
+<body class="container-fluid appFontStyle">
 
 </body>
 </html>

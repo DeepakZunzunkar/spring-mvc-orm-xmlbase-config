@@ -1,18 +1,59 @@
 package com.dz.app.service.impl;
 
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.dz.app.dao.EmployeeDao;
+import com.dz.app.entity.BaseProperties;
 import com.dz.app.entity.Employee;
 import com.dz.app.service.EmployeeService;
+import com.dz.app.utility.Constant.EmployeeStatus;
 
-public class EmployeeServiceImpl implements EmployeeService{
+@Component
+public class EmployeeServiceImpl implements EmployeeService {
 
-	private EmployeeDao employeeDao; 
-	
+	@Autowired
+	private EmployeeDao employeeDao;
+
 	@Override
-	public void addEmployee(Employee employee) {
-		
-		employeeDao.saveEmployee(employee);
-		
+	public String addEmployee(Employee trn) {
+
+		if (trn.getEid() != null) {
+
+			trn.getBaseProperties().setUpdatedBy("spring-mvc-orm");
+			trn.getBaseProperties().setUpdatedOn(new Date());
+			employeeDao.updateEmployee(trn);
+			return "succes";
+
+		} else {
+			trn.setBaseProperties(new BaseProperties("A", new Date(), "spring-mvc-orm", null, null));
+			trn.setStatus(EmployeeStatus.ACTIVE.getEmployeeStatusCode());
+			employeeDao.saveEmployee(trn);
+			return "updated";
+		}
+	}
+
+	@Override
+	public List<Employee> getEmployees() {
+
+		List<Employee> allEmployees = employeeDao.getAllEmployees();
+		long count = allEmployees.stream().count();
+		System.out.println("Count " + count);
+		return allEmployees;
+	}
+
+	@Override
+	public List<Employee> getEmployeesByPage(Integer pageVal, Integer pageSize) {
+
+		return employeeDao.getEmployeeByPage(pageVal, pageSize);
+	}
+
+	@Override
+	public Employee getEmployeeByEid(Long eid) {
+		return employeeDao.findById(eid);
 	}
 
 	
@@ -25,5 +66,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 		this.employeeDao = employeeDao;
 	}
 
-	
+	@Override
+	public void deleteEmployee(Long eid) {
+		this.employeeDao.deleteEmployee(getEmployeeByEid(eid));
+	}
 }

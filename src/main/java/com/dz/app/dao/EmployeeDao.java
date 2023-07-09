@@ -7,9 +7,10 @@ import com.dz.app.entity.Employee;
 public interface EmployeeDao {
 
 
-	Employee saveEmployee(Employee employee);
+	Long saveEmployee(Employee employee);
 	void updateEmployee(Employee empTrn);
 	void deleteEmployee(Employee empTrn);
-	Employee findById(long eid);
+	Employee findById(Long eid);
 	List<Employee> getAllEmployees();
+	List<Employee> getEmployeeByPage(Integer pageVal, Integer pageSize);
 }
