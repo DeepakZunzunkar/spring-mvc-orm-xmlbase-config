@@ -62,5 +62,7 @@
    <bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" name="transactionManager">
         <property name="sessionFactory" ref="sf" />
    </bean>
+   
+   <bean class="org.modelmapper.ModelMapper" name="modelMapper" />
     
 </beans>

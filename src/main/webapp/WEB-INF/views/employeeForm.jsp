@@ -12,8 +12,11 @@
 			<span> <a href="http://localhost:8081/spring-mvc-orm-xmlbase-config/employee/employeesByPageNumber?currentPage=1" class="btn btn-primary float-sm-left">Back</a></span> 
 			<span style="font-family: cursive; font-size: 24px; color: black; padding: 28px"> Registration Form </span> <span> </span>
 			<hr>
+			${EmployeeForm}
 			<form action="add" modelAttribute="EmployeeForm" method="post">
 				<div class="container">
+				    
+				    <input type="hidden"  name="eid" />
 					<div class="row">
 						<div class="col">
 							<input type="text" class="form-control inpSty" id="firstName"
@@ -33,8 +36,8 @@
 					</div>
 					<div class="row">
 						<div class="col">
-							<input type="text" class="form-control inpSty" data-provide="datepicker" name="birthDate"
-								placeholder="Date Of Birth" id='datepicker' required>
+							<input type="text" class="form-control inpSty datepicker" data-provide="datepicker" name="birthDate"
+								placeholder="Date Of Birth" id='birthDate' required>
 						</div>
 						<div class="col">
 							<input type="text" class="form-control inpSty" id="salary"

@@ -57,7 +57,7 @@ body {
 
 <script type="text/javascript">
 $(document).ready(function(){
-    $('#datepicker').datepicker({
+    $('.datepicker').datepicker({
     	orientation: "bottom"
     }); 
 });

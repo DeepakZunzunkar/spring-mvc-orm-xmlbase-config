@@ -2,14 +2,17 @@ package com.dz.app.controller;
 
 import java.util.List;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dz.app.dto.EmployeeDto;
 import com.dz.app.entity.Employee;
 import com.dz.app.service.EmployeeService;
 
@@ -21,6 +24,9 @@ public class EmployeeController {
 	
 	@Autowired
 	private EmployeeService employeeService;
+	
+	@Autowired
+	private ModelMapper modelMapper;
 
 //	Initialize form 
 	@RequestMapping("empform")
@@ -30,12 +36,11 @@ public class EmployeeController {
 		return "employeeForm";
 	}
 
-	@RequestMapping("add")
+	@RequestMapping(path="add",method=RequestMethod.POST)
 	public String addEmployee(Model model, @ModelAttribute("EmployeeForm") Employee employee) {
 
-		System.out.println(employee);
-		String msg = employeeService.addEmployee(employee);
-		model.addAttribute("msg", msg);
+//		System.out.println(employee);
+		employeeService.addEmployee(employee);
 		return "redirect:employeesByPageNumber?currentPage=1";
 	}
 
@@ -66,8 +71,11 @@ public class EmployeeController {
 	@RequestMapping("editEmployee/{id}")
 	public String editEmployee(@PathVariable("id") Long eid,Model model) {
 		
-		Employee employee=employeeService.getEmployeeByEid(eid);
-		model.addAttribute("EmployeeForm", employee);
+		Employee sqlEmp=employeeService.getEmployeeByEid(eid);
+		System.out.println("sql emp"+sqlEmp);
+		EmployeeDto dto = modelMapper.map(sqlEmp, EmployeeDto.class);
+		System.out.println("dto"+dto);
+		model.addAttribute("EmployeeForm",dto);
 		return "employeeForm";
 	}
 	
