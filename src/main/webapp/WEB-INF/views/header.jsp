@@ -4,7 +4,7 @@
 	<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light"
 		style="border-left: 116px solid; border-left-color: darkslategray; height: 70px">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="./employee?currentPage=1"
+			<a class="navbar-brand" href="http://localhost:8081/spring-mvc-orm-xmlbase-config/"
 				style="margin-left: -110px; font-family: cursive; font-size: 24px; color: white;">
 				DZ APP
 			</a>
@@ -25,10 +25,10 @@
 							Employee Census </a></li>
 					<!--<li class="nav-item"><a class="nav-link" aria-current="page" href="addEmployee.jsp">Add Employee</a></li> -->
 					<li id="pg" class="nav-item"><a class="nav-link"
-						href="employee?currentPage=1">test</a></li>
+						href="http://localhost:8081/spring-mvc-orm-xmlbase-config/test/">test</a></li>
 				</ul>
-				<form class="d-flex">
-					<input class="form-control me-2" type="search" placeholder="Search"
+				<form action="http://localhost:8081/spring-mvc-orm-xmlbase-config/search" class="d-flex">
+					<input class="form-control me-2" type="search" name="keyword" placeholder="Enter any Keyword"
 						aria-label="Search">
 					<button class="btn btn-outline-success" type="submit">Search</button>
 				</form>

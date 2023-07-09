@@ -3,6 +3,8 @@ package com.dz.app.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class HomeController {
@@ -21,11 +23,21 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(path = "/test", method = RequestMethod.GET)
+	@RequestMapping(path = "test", method = RequestMethod.GET)
 	public String test2() {
 
 		System.out.println("I am alive...dz");
-		return "index";
+		return "redirect:/";
 	}
+	
+	@RequestMapping("search")
+	public RedirectView searchKey(@RequestParam("keyword") String keyword) {
 
+		System.out.println("searching....");
+		
+		RedirectView redirectView=new RedirectView();
+		redirectView.setUrl("https://www.google.com/search?q="+keyword);
+		
+		return redirectView;
+	}
 }
