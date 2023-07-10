@@ -47,7 +47,7 @@ public class EmployeeController {
 
 	@RequestMapping("employees")
 	public String getEmployees(Model model) {
-			
+		
 		List<Employee> employees =employeeService.getEmployees();
 		model.addAttribute("empList",employees);
 		return "empList";
@@ -56,6 +56,11 @@ public class EmployeeController {
 	@RequestMapping("employeesByPageNumber")
 	public String getEmployeesByPageNumber(@RequestParam("currentPage") Integer currentPage,Model model) {
 
+
+		// raising exception for test
+		/*String s = null;
+		System.out.println(s.length());
+		Integer.parseInt(s);*/
 		
 		model.addAttribute("currentPage",currentPage);
 		Integer pageVal=(currentPage!=null)?currentPage-1:0;

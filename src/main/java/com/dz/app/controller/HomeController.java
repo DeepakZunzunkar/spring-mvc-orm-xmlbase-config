@@ -31,7 +31,7 @@ public class HomeController {
 	public String test2() {
 		
 		
-		//raising exception
+		//raising exception for test
 		String s="sss";
 		System.out.println(s.length());
 		Integer.parseInt(s);
@@ -57,7 +57,7 @@ public class HomeController {
 		return "error-page";
 	}*/
 	
-	@ExceptionHandler(value=Exception.class)
+	/*@ExceptionHandler(value=Exception.class)
 	public String handleGenericException(Model model){
 		model.addAttribute("msg","Something Went Wrong....");
 		return "error-page";
@@ -76,6 +76,6 @@ public class HomeController {
 		model.addAttribute("msg","Number FormatException Exception has occured..");
 		return "error-page";
 	}
-	
+	*/
 	
 }
