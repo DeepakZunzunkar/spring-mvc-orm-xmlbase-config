@@ -25,8 +25,8 @@
 					<li class="nav-item"><a class="nav-link" aria-current="page"
                         href="http://localhost:8081/spring-mvc-orm-xmlbase-config/complex/">Complex Form</a></li>
                         	
-					<li class="nav-item"><a class="nav-link" href="">Upload
-							Employee Census </a></li>
+					<li class="nav-item"><a class="nav-link" href="http://localhost:8081/spring-mvc-orm-xmlbase-config/fileUploadForm/">Upload
+							File </a></li>
 					<!--<li class="nav-item"><a class="nav-link" aria-current="page" href="addEmployee.jsp">Add Employee</a></li> -->
 					<li id="pg" class="nav-item"><a class="nav-link"
 						href="http://localhost:8081/spring-mvc-orm-xmlbase-config/test/">test</a></li>
