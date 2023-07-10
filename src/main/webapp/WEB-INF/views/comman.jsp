@@ -81,7 +81,7 @@ function chk(){
 </script>
 </head>
 <body class="container-fluid appFontStyle">
-
+    <%-- <img alt="my img12" src="<c:url value="/resources/images/bcgrd.jpg" />"> --%>
 </body>
 </html>
 

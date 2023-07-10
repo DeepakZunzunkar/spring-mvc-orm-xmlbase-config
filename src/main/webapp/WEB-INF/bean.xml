@@ -4,6 +4,7 @@
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:p="http://www.springframework.org/schema/p"
     xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
     xmlns:lang="http://www.springframework.org/schema/lang"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -12,11 +13,17 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/tx
-        http://www.springframework.org/schema/tx/spring-tx.xsd">           
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">           
 	
 	<!-- Here DispatcherServlet will search the controller class  -->
 	<context:component-scan base-package="com.dz.app.*"></context:component-scan>
 	
+	<mvc:annotation-driven />
+	<mvc:resources location="/WEB-INF/resources/" mapping="/resources/**" />
+	
+	<!-- <mvc:resources mapping="/resources/**" location="/resources/" /> -->
 	
 	<!-- Here, the InternalResourceViewResolver class is used for the ViewResolver.
 		 The prefix+string returned by controller+suffix page will be invoked for the view component.  -->
