@@ -1,9 +1,13 @@
 package com.dz.app.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
@@ -25,7 +29,13 @@ public class HomeController {
 
 	@RequestMapping(path = "test", method = RequestMethod.GET)
 	public String test2() {
-
+		
+		
+		//raising exception
+		String s="sss";
+		System.out.println(s.length());
+		Integer.parseInt(s);
+		
 		System.out.println("I am alive...dz");
 		return "redirect:/";
 	}
@@ -40,4 +50,32 @@ public class HomeController {
 		
 		return redirectView;
 	}
+	
+	/*@ExceptionHandler({NumberFormatException.class,NullPointerException.class})
+	public String handleException(Model model){
+		model.addAttribute("msg","Exception has occured..");
+		return "error-page";
+	}*/
+	
+	@ExceptionHandler(value=Exception.class)
+	public String handleGenericException(Model model){
+		model.addAttribute("msg","Something Went Wrong....");
+		return "error-page";
+	}
+
+	@ResponseStatus(value=HttpStatus.INTERNAL_SERVER_ERROR)
+	@ExceptionHandler(value=NullPointerException.class)
+	public String handleNullPointerException(Model model){
+		model.addAttribute("msg","Null Pointer Exception has occured..");
+		return "error-page";
+	}
+	
+	@ResponseStatus(value=HttpStatus.INTERNAL_SERVER_ERROR)
+	@ExceptionHandler(value=NumberFormatException.class)
+	public String handleNumberFormatException(Model model){
+		model.addAttribute("msg","Number FormatException Exception has occured..");
+		return "error-page";
+	}
+	
+	
 }

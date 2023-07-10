@@ -15,8 +15,8 @@
 		<div class="card-body">
         <div style="position: relative; text-align: center;color: white;">
             <img alt="my img" style="width:100%;" src="<c:url value="/resources/images/bcgrd.jpg" />">
-		    <div style="position: absolute; top: 8px; left: 16px;">
-		      <h2 style="color: orange;">Hello All , Welcome To My App...</h2>
+		    <div style="position: absolute; top: 8px; right: 16px;">
+		      <h2 style="color: white;font-weight: bold;">Hello All , Welcome To My App...</h2>
 		    </div> 
         
         </div>
