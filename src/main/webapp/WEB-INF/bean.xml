@@ -41,6 +41,13 @@
         <property name="password" value="root"/>
    </bean>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/log-search"/>
+            <bean class="com.dz.app.MyInterCeptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
    <bean name="sf" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" 
         p:dataSource-ref="ds">
        <property name="hibernateProperties">

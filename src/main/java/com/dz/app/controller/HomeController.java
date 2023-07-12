@@ -1,5 +1,8 @@
 package com.dz.app.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
@@ -32,12 +36,29 @@ public class HomeController {
 		
 		
 		//raising exception for test
-		String s="sss";
+		/*String s="sss";
 		System.out.println(s.length());
-		Integer.parseInt(s);
+		Integer.parseInt(s);*/
 		
 		System.out.println("I am alive...dz");
 		return "redirect:/";
+	}
+	
+
+	@RequestMapping(path = "testPage", method = RequestMethod.GET)
+	public String testpPage() {
+		return "test-home";
+	}
+
+	@RequestMapping("log-search")
+	public RedirectView testInterceptor(@RequestParam("keyword") String keyword,Model model,HttpServletRequest request) {
+		
+		System.out.println("keyword "+keyword); 
+		model.addAttribute("searchKey","search.. "+keyword);
+//		return "redirect:/";
+		RedirectView r = new RedirectView();
+		r.setUrl(request.getContextPath()+"/testPage");
+		return r;
 	}
 	
 	@RequestMapping("search")

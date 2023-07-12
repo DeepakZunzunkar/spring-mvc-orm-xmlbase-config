@@ -29,7 +29,7 @@
 							File </a></li>
 					<!--<li class="nav-item"><a class="nav-link" aria-current="page" href="addEmployee.jsp">Add Employee</a></li> -->
 					<li id="pg" class="nav-item"><a class="nav-link"
-						href="http://localhost:8081/spring-mvc-orm-xmlbase-config/test/">test</a></li>
+						href="http://localhost:8081/spring-mvc-orm-xmlbase-config/testPage/">test</a></li>
 				</ul>
 				<form action="http://localhost:8081/spring-mvc-orm-xmlbase-config/search" class="d-flex">
 					<input class="form-control me-2" type="search" name="keyword" placeholder="Enter any Keyword"
