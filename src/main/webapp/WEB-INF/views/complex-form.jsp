@@ -38,7 +38,7 @@
 							</button>
 						</div>
 						<form
-							action="http://localhost:8081/spring-mvc-orm-xmlbase-config/handledForm"
+							action="${pageContext.request.contextPath }/handledForm"
 							method="post">
 
 							<div class="form-group">
@@ -114,6 +114,7 @@
 							</div>
 
 							<div class="container text-center">
+								<a href="${pageContext.request.contextPath }" class="btn btn-outline-secondary">Back</a>
 								<button type="submit" class="btn btn-primary">Submit</button>
 							</div>
 						</form>

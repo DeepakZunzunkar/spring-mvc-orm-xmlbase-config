@@ -1,15 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<title>DZ | EMP</title>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<title>DZ | EMP ADD</title>
 
-<%@ page isELIgnored="false"%>
-<%@ include file="comman.jsp"%>
 <%@ include file="header.jsp"%>
 <div class="row" style="padding-top: 60px">
 	<div class="card" style="margin-top: 5px">
 		<div class="card-body">
-			<span> <a href="http://localhost:8081/spring-mvc-orm-xmlbase-config/employee/employeesByPageNumber?currentPage=1" class="btn btn-primary float-sm-left">Back</a></span> 
+			<span> <a href="${pageContext.request.contextPath }/employee/employeesByPageNumber?currentPage=1" class="btn btn-primary float-sm-left">Back</a></span> 
 			<span style="font-family: cursive; font-size: 24px; color: black; padding: 28px"> Registration Form </span> <span> </span>
 			<hr>
 			${EmployeeForm}

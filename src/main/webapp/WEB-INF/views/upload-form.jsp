@@ -15,7 +15,7 @@
 
 			<div class="container p-5 border border-primary">
 				<h2>Upload Image</h2>
-				<form action="http://localhost:8081/spring-mvc-orm-xmlbase-config/uploadImage" method="post" enctype="multipart/form-data">
+				<form action="${pageContext.request.contextPath }/uploadImage" method="post" enctype="multipart/form-data">
 					<div class="form-group">
                         <label for="uploadImage" >Select Your Image : </label>					
 					    <input type="file" name="uploadImg" id="uploadImage"

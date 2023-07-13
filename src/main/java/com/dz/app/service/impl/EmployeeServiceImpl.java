@@ -20,20 +20,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public String addEmployee(Employee trn) {
+		
+		trn.setBaseProperties(new BaseProperties("A", new Date(), "spring-mvc-orm", null, null));
+		trn.setStatus(EmployeeStatus.ACTIVE.getEmployeeStatusCode());
+		employeeDao.saveEmployee(trn);
+		return "updated";
 
-		if (trn.getEid() != null) {
-
+		/*if (trn.getEid() != null) {
 			trn.getBaseProperties().setUpdatedBy("spring-mvc-orm");
 			trn.getBaseProperties().setUpdatedOn(new Date());
 			employeeDao.updateEmployee(trn);
 			return "succes";
-
-		} else {
-			trn.setBaseProperties(new BaseProperties("A", new Date(), "spring-mvc-orm", null, null));
-			trn.setStatus(EmployeeStatus.ACTIVE.getEmployeeStatusCode());
-			employeeDao.saveEmployee(trn);
-			return "updated";
-		}
+		}*/
 	}
 
 	@Override

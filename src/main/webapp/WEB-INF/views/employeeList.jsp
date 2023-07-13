@@ -5,11 +5,6 @@
 
 <%@page import="com.dz.app.entity.Employee"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page isELIgnored="false"%>
-<%@ include file="comman.jsp"%>
 <%@ include file="header.jsp"%>
 <title>DZ | Employee Master </title>
 <%!Integer currentPage = 1;
@@ -47,7 +42,7 @@
 		<span
 			style="font-family: cursive; font-size: 24px; color: black; padding: 28px">
 			Employees</span> <span> </span>
-		<span class="pull-right" style="padding-right: 120px"><a href="http://localhost:8081/spring-mvc-orm-xmlbase-config/employee/empform" class="btn btn-primary float-sm-right"><i class="fa fa-plus" aria-hidden="true"></i>  Add</a></span>	
+		<span class="pull-right" style="padding-right: 120px"><a href="${pageContext.request.contextPath }/employee/empform" class="btn btn-primary float-sm-right"><i class="fa fa-plus" aria-hidden="true"></i>  Add</a></span>	
 		<hr>
 		<table class="table table-light table-hover">
 			<thead>

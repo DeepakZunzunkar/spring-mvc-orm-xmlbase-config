@@ -41,10 +41,28 @@ public class EmployeeController {
 	public String addEmployee(Model model, @ModelAttribute("EmployeeForm") Employee employee) {
 
 //		System.out.println(employee);
-		employeeService.addEmployee(employee);
+		try {
+			employeeService.addEmployee(employee);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return "redirect:employeesByPageNumber?currentPage=1";
 	}
 
+	@RequestMapping(path="update",method=RequestMethod.POST)
+	public String updateEmployee(Model model, @ModelAttribute("EmployeeForm") Employee employee) {
+
+		System.out.println("updatng ....");
+		try {
+			System.out.println(employee);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:employeesByPageNumber?currentPage=1";
+	}
+	
 	@RequestMapping("employees")
 	public String getEmployees(Model model) {
 		
@@ -77,12 +95,16 @@ public class EmployeeController {
 	@RequestMapping("editEmployee/{id}")
 	public String editEmployee(@PathVariable("id") Long eid,Model model) {
 		
-		Employee sqlEmp=employeeService.getEmployeeByEid(eid);
+		/*Employee sqlEmp=employeeService.getEmployeeByEid(eid);
 		System.out.println("sql emp"+sqlEmp);
 		EmployeeDto dto = modelMapper.map(sqlEmp, EmployeeDto.class);
 		System.out.println("dto"+dto);
-		model.addAttribute("EmployeeForm",dto);
-		return "employeeForm";
+		model.addAttribute("updatedemp",dto);*/
+		
+		Employee sqlEmp=employeeService.getEmployeeByEid(eid);
+		model.addAttribute("updatedemp",sqlEmp);
+		
+		return "employee-form-update";
 	}
 	
 	@RequestMapping("deleteEmployee/{id}")
